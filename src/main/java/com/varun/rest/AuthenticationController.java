@@ -10,11 +10,17 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("")
 public class AuthenticationController{
+  private LoginResponse loginResponse= new LoginResponse();
   @PostMapping("/login")
-    public String login(@RequestBody @Valid LoginRequest loginRequest){
+    public LoginResponse login(@RequestBody @Valid LoginRequest loginRequest){
       if(loginRequest.getEmail().equals("barun"))
       {
-          return "true";
-      }else return "false";
+        loginResponse.setName(loginRequest.getEmail());
+        loginResponse.setStatus(true);
+          return loginResponse;
+      }else {
+        loginResponse.setName(loginRequest.getEmail());
+        loginResponse.setStatus(false);
+        return loginResponse;}
     }
 }

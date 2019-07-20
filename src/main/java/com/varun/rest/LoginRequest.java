@@ -1,15 +1,7 @@
 package com.varun.rest;
-
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-
 public class LoginRequest {
 
-    @Email(message = "Email should be valid")
-    @NotBlank(message = "Email cannot be null")
     private String email;
-
-    @NotBlank(message = "Password cannot be null")
     private String password;
 
     public String getEmail() {
